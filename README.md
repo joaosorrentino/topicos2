@@ -37,12 +37,13 @@ topicos2/
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/seuusuario/seurepositorio.git
-cd seurepositorio/topicos2
-
-
+git clone https://github.com/joaosorrentino/topicos2.git
+cd joaosorrentino/topicos2
+``````
+---
+```bash
 source("analise/analise_estatistica.R")
-
+``````
 Este script realiza:
 
 Estatísticas descritivas
@@ -57,12 +58,16 @@ Diagnóstico de resíduos
 
 Rodando a API com plumber
 
+```bash
 library(plumber)
 pr <- plumb("api/plumber.R")
 pr$run(port = 8000)
-
+``````
+Abrir o projeto local 
+```bash
 http://localhost:8000/predict?DEPENDENCY_LEVEL=1.25
-
+``````
 Executar a Aplicação Shiny
-
+```bash
 shiny::runApp("app")
+``````
