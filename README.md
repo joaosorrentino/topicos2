@@ -1,91 +1,67 @@
-🧠 Projeto G2 – Análise Estatística e Modelagem Preditiva com Aplicação Web em Shiny
+# 📊 Projeto G2 – Análise Estatística e Modelagem Preditiva com Shiny e API REST
 
-📌 Descrição do Projeto
-Este projeto tem como objetivo analisar um conjunto de dados de um sistema orientado a objetos (KC1) utilizando R, aplicar técnicas de estatística descritiva e inferencial, construir um modelo de regressão linear para prever defeitos em classes de software e disponibilizar essa previsão via API REST e aplicação web interativa com Shiny.
+Este projeto foi desenvolvido para a disciplina de **Tópicos Especiais 2**, e tem como objetivo analisar dados de qualidade de software utilizando R, construir um modelo preditivo de regressão linear e integrar uma API com uma aplicação interativa via Shiny.
 
-📁 Estrutura do Projeto
-graphql
-Copiar
-Editar
+---
+
+## 📁 Estrutura do Projeto
+
 topicos2/
-├── api/
-│   └── plumber.R           # Código da API REST com modelo de regressão
-├── app/
-│   └── app.R               # Aplicação web construída com Shiny
 ├── analise/
-│   └── analise_estatistica.R  # Código com análise descritiva, testes e modelo
+│ └── analise_estatistica.R # Script com análises estatísticas e modelo
+├── api/
+│ └── plumber.R # API REST com modelo preditivo
+├── app/
+│ └── app.R # Aplicação Shiny interativa
 ├── dados/
-│   └── dataset_KC1_classlevel_numdefect.xlsx
-📊 Etapas Realizadas
-1. Análise Estatística Descritiva
-Média, mediana, moda, desvio padrão, mínimo, máximo e amplitude para cada variável numérica.
+│ └── dataset_KC1_classlevel_numdefect.xlsx # Base de dados
 
-Histogramas com curvas de densidade.
 
-Boxplots para identificação de outliers.
+---
 
-Teste de normalidade (Shapiro-Wilk).
+## 📌 Objetivos
 
-2. Análise de Correlação
-Matriz de correlação entre variáveis numéricas.
+- Realizar estatísticas descritivas (média, mediana, desvio padrão, etc.).
+- Testar normalidade com Shapiro-Wilk.
+- Avaliar correlações entre variáveis.
+- Construir modelo de regressão linear para prever defeitos (`NUMDEFECTS`).
+- Criar uma **API REST** para servir esse modelo.
+- Desenvolver uma **aplicação Shiny** para interação com o usuário.
+- Publicar a aplicação no [shinyapps.io](https://www.shinyapps.io).
 
-Identificação das variáveis mais correlacionadas com o número de defeitos (NUMDEFECTS).
+---
 
-Gráficos de dispersão com linha de tendência.
+## 🔧 Como Executar o Projeto
 
-3. Regressão Linear
-Modelo simples utilizando COUPLING_BETWEEN_OBJECTS como variável explicativa.
+### 1. Clone o Repositório
 
-Avaliação dos coeficientes, R², R² ajustado, p-valores e diagnóstico dos resíduos.
+```bash
+git clone https://github.com/seuusuario/seurepositorio.git
+cd seurepositorio/topicos2
 
-4. API REST com Plumber
-Implementação da API com o pacote plumber.
 
-Endpoint que recebe a métrica como input e retorna a previsão de NUMDEFECTS.
-
-5. Aplicação Shiny
-Interface para inserir dados de entrada e visualizar a previsão.
-
-Exibição dos gráficos usados na análise.
-
-Aplicação publicada no shinyapps.io.
-
-🚀 Como Executar Localmente
-Pré-requisitos
-R instalado (versão recomendada: 4.3+)
-
-RStudio
-
-Pacotes: readxl, tidyverse, ggpubr, PerformanceAnalytics, ggcorrplot, plumber, shiny
-
-Passos
-Clone o repositório:
-
-bash
-Copiar
-Editar
-git clone https://github.com/joaosorrentino/topicos2.git
-Execute a análise estatística:
-
-R
-Copiar
-Editar
 source("analise/analise_estatistica.R")
-Rode a API:
 
-R
-Copiar
-Editar
+Este script realiza:
+
+Estatísticas descritivas
+
+Histogramas e boxplots
+
+Testes de normalidade
+
+Regressão linear
+
+Diagnóstico de resíduos
+
+Rodando a API com plumber
+
 library(plumber)
 pr <- plumb("api/plumber.R")
 pr$run(port = 8000)
-Execute a aplicação Shiny:
 
-R
-Copiar
-Editar
+http://localhost:8000/predict?DEPENDENCY_LEVEL=1.25
+
+Executar a Aplicação Shiny
+
 shiny::runApp("app")
-🌐 Publicação
-A aplicação está disponível em:
-
-🔗 Link do ShinyApps.io
