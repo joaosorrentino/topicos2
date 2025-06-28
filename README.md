@@ -5,7 +5,7 @@ Este projeto foi desenvolvido para a disciplina de **Tópicos Especiais 2**, e t
 ---
 
 ## 📁 Estrutura do Projeto
-
+```bash
 topicos2/
 ├── analise/
 │ └── analise_estatistica.R # Script com análises estatísticas e modelo
@@ -15,6 +15,7 @@ topicos2/
 │ └── app.R # Aplicação Shiny interativa
 ├── dados/
 │ └── dataset_KC1_classlevel_numdefect.xlsx # Base de dados
+```bash
 
 
 ---
