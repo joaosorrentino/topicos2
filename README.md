@@ -71,3 +71,6 @@ Executar a Aplicação Shiny
 ```bash
 shiny::runApp("app")
 ``````
+
+## Link do projeto
+https://joaosorrentino.shinyapps.io/topicos2/
